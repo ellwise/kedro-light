@@ -1,24 +1,20 @@
+from pathlib import Path
 from setuptools import setup
-from os import path
 
 
 # read the contents of your README file
-curr_dir = path.abspath(path.dirname(__file__))
-with open(path.join(curr_dir, "README.md"), encoding="utf-8") as f:
-    long_description = f.read()
+long_description = Path(__file__).with_name("README.md").read_text()
 
 setup(
     name="kedro-light",
-    version="0.1",
-    description="A lightweight interface to Kedro",
+    version=0.2,
+    description="A lightweight interface to Kedro and Kedro-Viz",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/ellwise/naive-bayes-explainer",
+    url="https://github.com/ellwise/kedro-light",
     author="Elliott Wise",
     author_email="ell.wise@gmail.com",
     license="MIT",
     packages=["kedro_light"],
-    install_requires=["kedro"],
-    include_package_data=True,
-    zip_safe=False,
+    install_requires=["kedro", "kedro-viz"],
 )

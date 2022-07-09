@@ -1,9 +1,12 @@
 format:
-	python -m black --config pyproject.toml .
-
-lint:
-	python -m flake8 --config lint.cfg
-	python -m black  --config pyproject.toml --check .
+	isort kedro_light
+	black kedro_light
 
 install:
-	pip install --editable .
+	pip install -e . -r requirements.in
+
+verify:
+	isort --check --diff kedro_light
+	black --check --diff kedro_light
+	flake8 kedro_light
+
