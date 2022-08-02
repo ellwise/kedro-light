@@ -15,13 +15,13 @@ dependencies = ["kedro", "kedro-viz"]
 license = {file = "LICENSE"}
 name = "kedro-light"
 readme = "README.md"
-version = "0.2.2"
+version = "0.2.4"
 
 [project.optional-dependencies]
 api = ["kedro[api]"]
 biosequence = ["kedro[biosequence]"]
 dask = ["kedro[dask]"]
-dev = ["black", "flake8", "isort"]
+dev = ["black", "flake8", "isort", "pdoc3"]
 docs = ["kedro[docs]"]
 geopandas = ["kedro[geopandas]"]
 matplotlib = ["kedro[matplotlib]"]

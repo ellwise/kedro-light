@@ -9,7 +9,7 @@ from kedro_viz.server import populate_data
 
 
 def show(pipelines: Dict[str, Pipeline], io: DataCatalog):
-
+    """Start a Kedro-Viz server for the specified pipeline and data catalog"""
     populate_data(data_access_manager, io, pipelines, None)
     app = apps.create_api_app_from_project(None)
     host, port = "localhost", 4141
