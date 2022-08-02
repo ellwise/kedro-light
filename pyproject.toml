@@ -3,3 +3,41 @@ line-length = 99
 
 [tool.isort]
 profile = "black"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+authors = [{name = "Elliott Wise", email = "ell.wise@gmail.com"}]
+description = "A lightweight interface to Kedro and Kedro-Viz"
+dependencies = ["kedro", "kedro-viz"]
+license = {file = "LICENSE"}
+name = "kedro-light"
+readme = "README.md"
+version = "0.2.2"
+
+[project.optional-dependencies]
+api = ["kedro[api]"]
+biosequence = ["kedro[biosequence]"]
+dask = ["kedro[dask]"]
+dev = ["black", "flake8", "isort"]
+docs = ["kedro[docs]"]
+geopandas = ["kedro[geopandas]"]
+matplotlib = ["kedro[matplotlib]"]
+holoviews = ["kedro[holoviews]"]
+networkx = ["kedro[networkx]"]
+pandas = ["kedro[pandas]"]
+pillow = ["kedro[pillow]"]
+plotly = ["kedro[plotly]"]
+redis = ["kedro[redis]"]
+spark = ["kedro[spark]"]
+tensorflow = ["kedro[tensorflow]"]
+yaml = ["kedro[yaml]"]
+
+[project.urls]
+source = "https://github.com/ellwise/kedro-light"
+
+
+[tool.setuptools]
+packages = ["kedro_light"]

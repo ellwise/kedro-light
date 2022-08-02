@@ -3,7 +3,7 @@ format:
 	black kedro_light
 
 install:
-	pip install -e . -r requirements.in
+	pip install -e .[dev]
 
 verify:
 	isort --check --diff kedro_light
