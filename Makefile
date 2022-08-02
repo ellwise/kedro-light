@@ -1,3 +1,6 @@
+documentation:
+	pdoc --html --force --output-dir docs kedro_light
+
 format:
 	isort kedro_light
 	black kedro_light
