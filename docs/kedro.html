@@ -30,7 +30,8 @@
 from kedro.framework.session import KedroSession
 from kedro.io import DataCatalog
 from kedro.pipeline import Pipeline
-from kedro.runner import SequentialRunner
+from kedro.pipeline.node import Node
+from kedro.runner import ParallelRunner, SequentialRunner, ThreadRunner
 
 
 def io(project_path: str, conf_source: str) -&gt; DataCatalog:
@@ -44,10 +45,28 @@ def io(project_path: str, conf_source: str) -&gt; DataCatalog:
     return context.catalog
 
 
-def run(pipeline: Pipeline, io: DataCatalog):
+def run(
+    pipeline: Pipeline,
+    io: DataCatalog,
+    parallel=False,
+    threaded=False,
+    only_missing=False,
+):
     &#34;&#34;&#34;Run a pipeline using the datasets within a given data catalog&#34;&#34;&#34;
+    if parallel and threaded:
+        raise ValueError(&#34;Can only choose one of `parallel` and `threaded`&#34;)
+    runner = ParallelRunner if parallel else ThreadRunner if threaded else SequentialRunner
+    func = runner.run_only_missing if only_missing else runner.run
+    func(pipeline, io)
+
+
+def run_node(
+    node: Node,
+    io: DataCatalog,
+    is_async=False,
+):
     runner = SequentialRunner()
-    runner.run(pipeline, io)</code></pre>
+    runner.run_node(node, io, is_async=is_async)</code></pre>
 </details>
 </section>
 <section>
@@ -79,7 +98,7 @@ configuration path</p></div>
 </details>
 </dd>
 <dt id="kedro_light.kedro.run"><code class="name flex">
-<span>def <span class="ident">run</span></span>(<span>pipeline: kedro.pipeline.pipeline.Pipeline, io: kedro.io.data_catalog.DataCatalog)</span>
+<span>def <span class="ident">run</span></span>(<span>pipeline: kedro.pipeline.pipeline.Pipeline, io: kedro.io.data_catalog.DataCatalog, parallel=False, threaded=False, only_missing=False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Run a pipeline using the datasets within a given data catalog</p></div>
@@ -87,10 +106,37 @@ configuration path</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def run(pipeline: Pipeline, io: DataCatalog):
+<pre><code class="python">def run(
+    pipeline: Pipeline,
+    io: DataCatalog,
+    parallel=False,
+    threaded=False,
+    only_missing=False,
+):
     &#34;&#34;&#34;Run a pipeline using the datasets within a given data catalog&#34;&#34;&#34;
+    if parallel and threaded:
+        raise ValueError(&#34;Can only choose one of `parallel` and `threaded`&#34;)
+    runner = ParallelRunner if parallel else ThreadRunner if threaded else SequentialRunner
+    func = runner.run_only_missing if only_missing else runner.run
+    func(pipeline, io)</code></pre>
+</details>
+</dd>
+<dt id="kedro_light.kedro.run_node"><code class="name flex">
+<span>def <span class="ident">run_node</span></span>(<span>node: kedro.pipeline.node.Node, io: kedro.io.data_catalog.DataCatalog, is_async=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_node(
+    node: Node,
+    io: DataCatalog,
+    is_async=False,
+):
     runner = SequentialRunner()
-    runner.run(pipeline, io)</code></pre>
+    runner.run_node(node, io, is_async=is_async)</code></pre>
 </details>
 </dd>
 </dl>
@@ -113,6 +159,7 @@ configuration path</p></div>
 <ul class="">
 <li><code><a title="kedro_light.kedro.io" href="#kedro_light.kedro.io">io</a></code></li>
 <li><code><a title="kedro_light.kedro.run" href="#kedro_light.kedro.run">run</a></code></li>
+<li><code><a title="kedro_light.kedro.run_node" href="#kedro_light.kedro.run_node">run_node</a></code></li>
 </ul>
 </li>
 </ul>

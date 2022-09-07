@@ -5,7 +5,7 @@ This package provides a minimal interface to [Kedro](https://github.com/kedro-or
 * `io` - Creates a `DataCatalog` (for loading/saving named datasets)
 * `node` - Creates a `Node` (for transforming named datasets)
 * `pipeline` - Creates a `Pipeline` using Kedro's `modular_pipeline` constructor (this defines a DAG of data transformations)
-* `run` - Runs a pipeline using a `SequentialRunner`
+* `run`, `run_node` - Runs a pipeline or node respectively
 * `show` - Serves a web app that displays a collection of pipelines
 
 Full API documentation can be found [here](https://ellwise.github.io/kedro-light). A condensed example of the package's use is given below.
