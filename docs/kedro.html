@@ -65,6 +65,7 @@ def run_node(
     io: DataCatalog,
     is_async=False,
 ):
+    &#34;&#34;&#34;Run a node using the datasets within a given data catalog&#34;&#34;&#34;
     runner = SequentialRunner()
     runner.run_node(node, io, is_async=is_async)</code></pre>
 </details>
@@ -125,7 +126,7 @@ configuration path</p></div>
 <span>def <span class="ident">run_node</span></span>(<span>node: kedro.pipeline.node.Node, io: kedro.io.data_catalog.DataCatalog, is_async=False)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Run a node using the datasets within a given data catalog</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -135,6 +136,7 @@ configuration path</p></div>
     io: DataCatalog,
     is_async=False,
 ):
+    &#34;&#34;&#34;Run a node using the datasets within a given data catalog&#34;&#34;&#34;
     runner = SequentialRunner()
     runner.run_node(node, io, is_async=is_async)</code></pre>
 </details>

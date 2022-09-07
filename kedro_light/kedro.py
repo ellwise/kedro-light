@@ -37,5 +37,6 @@ def run_node(
     io: DataCatalog,
     is_async=False,
 ):
+    """Run a node using the datasets within a given data catalog"""
     runner = SequentialRunner()
     runner.run_node(node, io, is_async=is_async)
