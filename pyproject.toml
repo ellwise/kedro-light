@@ -15,7 +15,7 @@ dependencies = ["kedro", "kedro-viz"]
 license = {file = "LICENSE"}
 name = "kedro-light"
 readme = "README.md"
-version = "0.2.4"
+version = "0.2.5"
 
 [project.optional-dependencies]
 api = ["kedro[api]"]
