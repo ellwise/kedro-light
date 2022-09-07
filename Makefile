@@ -10,6 +10,9 @@ format:
 install:
 	pip install -e .[dev]
 
+link_readme:
+	ln -sr README.md kedro_light/README.md
+
 verify:
 	isort --check --diff kedro_light
 	black --check --diff kedro_light

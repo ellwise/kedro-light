@@ -56,7 +56,7 @@ from kedro.pipeline.modular_pipeline import pipeline
 from kedro_light.kedro import io, run
 from kedro_light.kedro_viz import show
 
-readme = (Path(__file__).parents[1] / &#34;README.md&#34;).read_text()
+readme = Path(__file__).with_name(&#34;README.md&#34;).read_text()
 readme = &#34;\n&#34;.join(readme.split(&#34;\n&#34;)[1:])  # drop heading line
 
 __doc__ = readme</code></pre>
