@@ -1,21 +1,35 @@
-documentation:
-	pdoc --html --force --output-dir docs kedro_light
-	mv docs/kedro_light/* docs
-	rmdir docs/kedro_light
+.PHONY: build
+build:
+	python -m build --outdir _dist
 
+.PHONY: compile
+compile:
+	pip-compile --output-file requirements.txt --extra dev pyproject.toml
+
+.PHONY: deploy
+deploy:
+	mkdocs gh-deploy --force
+
+.PHONY: distribute
+distribute: build
+	twine upload _dist/*
+
+.PHONY: format
 format:
-	isort kedro_light
-	black kedro_light
+	isort .
+	black .
 
+.PHONY: install
 install:
-	pip install -e .[dev]
+	pip install -r requirements.txt
+	pip install -e .
 
-link_readme:
-	ln -sr README.md kedro_light/README.md
+.PHONY: serve
+serve:
+	mkdocs serve
 
+.PHONY: verify
 verify:
-	isort --check --diff kedro_light
-	black --check --diff kedro_light
-	flake8 kedro_light
-	$(MAKE) documentation
-
+	isort --check --diff .
+	black --check --diff .
+	ruff check .
