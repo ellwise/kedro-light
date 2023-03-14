@@ -1,5 +1,9 @@
-Kedro Light provides a minimal interface to [Kedro](https://github.com/kedro-org/kedro) and [Kedro-Viz](https://github.com/kedro-org/kedro-viz).
-It is intended for when you want to use Kedro's data catalog system and pipeline objects (to separate data from logic), as well as its visualisation capabilities, but don't want to embrace the full Kedro project structure and workflow.
+**Kedro Light provides a minimal interface to [Kedro](https://github.com/kedro-org/kedro) and [Kedro-Viz](https://github.com/kedro-org/kedro-viz).**
+You can install it via PyPI with
+```
+pip install kedro-light
+```
+Kedro Light is intended for when you want to use Kedro's data catalog system and pipeline objects (to separate data from logic), as well as its visualisation capabilities, but don't want to embrace the full Kedro project structure and workflow.
 Kedro Light defines/re-exports the following functions:
 
 * `data_catalog` creates a `DataCatalog` (for loading/saving named datasets)
