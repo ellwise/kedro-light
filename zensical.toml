@@ -1,11 +1,14 @@
 [project]
 site_name = "Kedro Light"
 repo_url = "https://github.com/ellwise/kedro-light"
-
 nav = [
     { "Home" = "index.md" },
     { "Usage" = "usage.md" },
 ]
+
+[project.theme.palette]
+scheme = "slate"
+primary = "orange"
 
 [project.markdown_extensions.pymdownx.highlight]
 
