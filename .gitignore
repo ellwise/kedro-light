@@ -1,7 +1,9 @@
+_dist
 **.egg-info
+example/iris_analysis/data/iris.csv
+example/iris_analysis/data/pca.yaml
 **__pycache__
 .ruff_cache
-.vscode
-_dist
-requirements.txt
 site/*
+.venv
+.vscode

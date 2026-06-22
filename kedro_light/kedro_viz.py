@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Dict
 
 import uvicorn
@@ -10,8 +11,8 @@ from kedro_viz.server import populate_data
 
 def show(pipelines: Dict[str, Pipeline], io: DataCatalog):
     """Start a Kedro-Viz server for the specified pipeline and data catalog"""
-    populate_data(data_access_manager, io, pipelines, None)
-    app = apps.create_api_app_from_project(None)
+    populate_data(data_access_manager, io, pipelines, {})
+    app = apps.create_api_app_from_project(Path.cwd())
     host, port = "localhost", 4141
     print(f"Kedro-Viz is running on http://{host}:{port}/")
     uvicorn.run(app, host=host, port=port, log_config=None)

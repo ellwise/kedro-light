@@ -9,7 +9,7 @@ Kedro Light defines/re-exports the following functions:
 * `data_catalog` creates a `DataCatalog` (for loading/saving named datasets)
 * `node` creates a `Node` (for transforming named datasets)
 * `pipeline` creates a `Pipeline` using Kedro's modular pipeline constructor (this defines a DAG of data transformations)
-* `run` and `run_node` run a pipeline or node respectively
+* `run` runs a pipeline
 * `show` serves a web app that displays a collection of pipelines
 
 A condensed usage example is given below.

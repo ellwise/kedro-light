@@ -1,35 +1,33 @@
 .PHONY: build
 build:
-	python -m build --outdir _dist
+	uv build --out-dir _dist
 
-.PHONY: compile
-compile:
-	pip-compile --output-file requirements.txt --extra dev pyproject.toml
+.PHONY: docs
+docs:
+	uv run zensical serve
 
-.PHONY: deploy
-deploy:
-	mkdocs gh-deploy --force
+.PHONY: docs-build
+docs-build:
+	uv run zensical build
 
-.PHONY: distribute
-distribute: build
-	twine upload _dist/*
+.PHONY: example
+example:
+	cd example/iris_analysis && uv run --group example python eda/01_analysis.py
 
 .PHONY: format
 format:
-	isort .
-	black .
+	uv run ruff format .
+	uv run ruff check --fix .
 
 .PHONY: install
 install:
-	pip install -r requirements.txt
-	pip install -e .
+	uv sync
 
-.PHONY: serve
-serve:
-	mkdocs serve
+.PHONY: lint
+lint:
+	uv run ruff format --check --diff .
+	uv run ruff check .
 
-.PHONY: verify
-verify:
-	isort --check --diff .
-	black --check --diff .
-	ruff check .
+.PHONY: publish
+publish: build
+	uv publish
