@@ -10,7 +10,7 @@ license = {file = "LICENSE"}
 name = "kedro-light"
 readme = "README.md"
 requires-python = ">=3.11"
-version = "2023.03.13"
+version = "2026.06.22"
 
 [project.optional-dependencies]
 api = ["kedro-datasets[api]"]
