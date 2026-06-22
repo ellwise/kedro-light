@@ -4,11 +4,11 @@ build:
 
 .PHONY: docs
 docs:
-	uv run mkdocs serve
+	uv run zensical serve
 
-.PHONY: docs-deploy
-docs-deploy:
-	uv run mkdocs gh-deploy --force
+.PHONY: docs-build
+docs-build:
+	uv run zensical build
 
 .PHONY: format
 format:

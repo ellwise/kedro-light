@@ -34,7 +34,7 @@ source = "https://github.com/ellwise/kedro-light"
 docs = "https://ellwise.github.io/kedro-light"
 
 [dependency-groups]
-dev = ["mkdocs-material", "ruff"]
+dev = ["ruff", "zensical"]
 
 [tool.ruff]
 line-length = 99

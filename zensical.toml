@@ -1,0 +1,15 @@
+[project]
+site_name = "Kedro Light"
+repo_url = "https://github.com/ellwise/kedro-light"
+
+nav = [
+    { "Home" = "index.md" },
+    { "Usage" = "usage.md" },
+]
+
+[project.markdown_extensions.pymdownx.highlight]
+
+[project.markdown_extensions.pymdownx.superfences]
+
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
