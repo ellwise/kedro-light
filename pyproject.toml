@@ -13,21 +13,21 @@ requires-python = ">=3.11"
 version = "2023.03.13"
 
 [project.optional-dependencies]
-api = ["kedro[api]"]
-biosequence = ["kedro[biosequence]"]
-dask = ["kedro[dask]"]
+api = ["kedro-datasets[api]"]
+biosequence = ["kedro-datasets[biosequence]"]
+dask = ["kedro-datasets[dask]"]
 docs = ["kedro[docs]"]
-geopandas = ["kedro[geopandas]"]
-matplotlib = ["kedro[matplotlib]"]
-holoviews = ["kedro[holoviews]"]
-networkx = ["kedro[networkx]"]
-pandas = ["kedro[pandas]"]
-pillow = ["kedro[pillow]"]
-plotly = ["kedro[plotly]"]
-redis = ["kedro[redis]"]
-spark = ["kedro[spark]"]
-tensorflow = ["kedro[tensorflow]"]
-yaml = ["kedro[yaml]"]
+geopandas = ["kedro-datasets[geopandas]"]
+matplotlib = ["kedro-datasets[matplotlib]"]
+holoviews = ["kedro-datasets[holoviews]"]
+networkx = ["kedro-datasets[networkx]"]
+pandas = ["kedro-datasets[pandas]"]
+pillow = ["kedro-datasets[pillow]"]
+plotly = ["kedro-datasets[plotly]"]
+redis = ["kedro-datasets[redis]"]
+spark = ["kedro-datasets[spark]"]
+tensorflow = ["kedro-datasets[tensorflow]"]
+yaml = ["kedro-datasets[yaml]"]
 
 [project.urls]
 source = "https://github.com/ellwise/kedro-light"
@@ -35,6 +35,7 @@ docs = "https://ellwise.github.io/kedro-light"
 
 [dependency-groups]
 dev = ["ruff", "zensical"]
+example = ["kaleido", "kedro-datasets[pandas,yaml]", "plotly", "scikit-learn"]
 
 [tool.ruff]
 line-length = 99

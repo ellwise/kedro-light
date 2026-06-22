@@ -1,0 +1,7 @@
+iris:
+    type: pandas.CSVDataset
+    filepath: data/iris.csv
+
+pca:
+    type: yaml.YAMLDataset
+    filepath: data/pca.yaml

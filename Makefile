@@ -10,6 +10,10 @@ docs:
 docs-build:
 	uv run zensical build
 
+.PHONY: example
+example:
+	cd example/iris_analysis && uv run --group example python eda/01_analysis.py
+
 .PHONY: format
 format:
 	uv run ruff format .

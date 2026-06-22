@@ -16,11 +16,11 @@
 
     ```yaml
     iris:
-        type: pandas.CSVDataSet
+        type: pandas.CSVDataset
         filepath: data/iris.csv
 
     pca:
-        type: yaml.YAMLDataSet
+        type: yaml.YAMLDataset
         filepath: data/pca.yaml
     ```
 
@@ -161,7 +161,7 @@ kl.run(
 
 Kedro `Pipeline` objects can be created by passing your DAG of nodes into Kedro's `pipeline` function, which has also been re-exported by Kedro Light for convenience.
 To actually use that pipeline, Kedro Light includes a `run` function.
-This takes some optional keyword arguments that specify the Kedro runner that is used (`SequentialRunner` by default, otherwise `ParallelRunner` or `ThreadRunner`), and the run method that is called (either `run` or `run_only_missing`).
+This takes some optional keyword arguments that specify the Kedro runner that is used (`SequentialRunner` by default, otherwise `ParallelRunner` or `ThreadRunner`), and whether only nodes with missing outputs should be run (`only_missing`).
 
 ## Visualising a pipeline
 
