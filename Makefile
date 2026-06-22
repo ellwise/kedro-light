@@ -1,35 +1,29 @@
 .PHONY: build
 build:
-	python -m build --outdir _dist
+	uv build --out-dir _dist
 
-.PHONY: compile
-compile:
-	pip-compile --output-file requirements.txt --extra dev pyproject.toml
+.PHONY: docs
+docs:
+	uv run mkdocs serve
 
-.PHONY: deploy
-deploy:
-	mkdocs gh-deploy --force
-
-.PHONY: distribute
-distribute: build
-	twine upload _dist/*
+.PHONY: docs-deploy
+docs-deploy:
+	uv run mkdocs gh-deploy --force
 
 .PHONY: format
 format:
-	isort .
-	black .
+	uv run ruff format .
+	uv run ruff check --fix .
 
 .PHONY: install
 install:
-	pip install -r requirements.txt
-	pip install -e .
+	uv sync
 
-.PHONY: serve
-serve:
-	mkdocs serve
+.PHONY: lint
+lint:
+	uv run ruff format --check --diff .
+	uv run ruff check .
 
-.PHONY: verify
-verify:
-	isort --check --diff .
-	black --check --diff .
-	ruff check .
+.PHONY: publish
+publish: build
+	uv publish
