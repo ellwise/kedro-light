@@ -1,4 +1,4 @@
-_dist
+dist
 **.egg-info
 example/iris_analysis/data/iris.csv
 example/iris_analysis/data/pca.yaml

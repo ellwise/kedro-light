@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	uv build --out-dir _dist
+	uv build
 
 .PHONY: docs
 docs:
